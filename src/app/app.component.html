@@ -1,0 +1,13 @@
+<fieldset>
+  <legend><h2>Product Management</h2></legend>
+  <br>
+  <div id="links">
+    <a [routerLink]="['']">Home</a> | 
+    <a [routerLink]="['products']">Product List</a> | 
+    <a [routerLink]="['products','create']">Create Product</a>
+  </div>
+  <br>
+  <hr>
+  
+  <router-outlet></router-outlet>
+</fieldset>

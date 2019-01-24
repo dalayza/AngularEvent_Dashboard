@@ -1,0 +1,31 @@
+<fieldset>
+  <legend>
+    <h3>Edit Product</h3>
+  </legend>
+  <div class="inputs">
+    <form (submit)="editProduct(idx)" #formData="ngForm">
+      <label>
+          Title:
+          <input type="text" name='title' required minlength="4" value="product.title" [(ngModel)]="product.title" #title="ngModel">
+        </label>
+      <label>
+          Price:
+          <input type="text" name='price' required value="product.price" [(ngModel)]="product.price" #price="ngModel">
+        </label>
+      <label>
+          Image URL:
+          <input type="text" name='pic' value="product.pic" [(ngModel)]="product.pic" #pic="ngModel">
+        </label>
+      <br><br>
+      <a [routerLink]="['','products']"><button (click)="deleteProduct(product)">Delete</button></a>
+      <button type="submit" [disabled]="formData.invalid">Update</button>
+    </form>
+  </div>
+  <div class="validations">
+    <span *ngIf="title.invalid" class="err">Title is required. Must be at least 4 characters</span>
+    <span *ngIf="title.valid" class="valid">&#x2713;</span>
+    <span *ngIf="price.invalid" class="err">Price is required.</span>
+    <span *ngIf="price.valid" class="valid">&#x2713;</span>
+    <span class="valid">&#x2713;</span>
+  </div>
+</fieldset>

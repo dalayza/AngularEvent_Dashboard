@@ -1,0 +1,13 @@
+<fieldset>
+  <legend><h3>Product List</h3></legend>
+  <div class="block" *ngFor="let product of products; let idx = index">
+    <div class="imagebox">
+      <img src="{{product.pic}}" alt="">
+    </div>
+    <h3>{{product.title}}</h3>
+    <h5>${{product.price}}</h5>
+    <p>{{product.id}}</p>
+    <a [routerLink]="['edit',idx]"><button>Edit</button></a>
+    <button (click)="deleteProduct(product)">Delete</button>
+  </div>
+</fieldset>
